@@ -74,7 +74,7 @@ function addFloor(color) {
     var floorMaterial = new THREE.MeshBasicMaterial({ color: color });
     var floor = new THREE.Mesh(plane, floorMaterial);
     floor.rotation.x = Math.PI / 2;
-    floor.position.set(0,0,0);
+    floor.position.set(0,0,5);
     scene.add(floor); 
     floor.name = 'floor';
 
@@ -100,7 +100,7 @@ function generateSnow() {
 function snowfall() {
     //send snow down
     for (var x = 0; x < snow.length; x++) {
-        if (snow[x].mesh.position.y > 0) {
+        if (snow[x].mesh.position.y > 10) {
             snow[x].mesh.position.y -= snow[x].fallRate;
             snow[x].mesh.updateMatrix();
         }
