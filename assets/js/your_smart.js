@@ -89,7 +89,7 @@ function generateSnow() {
         var mesh = new THREE.Mesh(snowGeometry, snowMat);
         mesh.position.x = (Math.random() - 0.5) * 1000;
         mesh.position.z = (Math.random() - 0.5) * 1000;
-        mesh.position.y = 600;
+        mesh.position.y = 400;
         mesh.updateMatrix();
         scene.add(mesh);
         snow.push({ mesh: mesh, fallRate: Math.random() * .2 });
@@ -125,10 +125,10 @@ animate();
 function init() {
     
 
-    camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.set(9.866247820078698, 550.3218566559581, 515.2997605334697);
-    camera.quaternion.set(0.9832173912883538, -0.18100187932589176, 0.02246696023949332, 0.004135974725518496);
-    camera.updateProjectionMatrix();
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.set(9.866247820078698, 400.3218566559581, 515.2997605334697);
+    //camera.quaternion.set(0.9832173912883538, -0.18100187932589176, 0.02246696023949332, 0.004135974725518496);
+    //camera.updateProjectionMatrix();
 
     controls = new THREE.OrbitControls(camera);
     
@@ -179,7 +179,8 @@ function init() {
     // renderer
 
     renderer = new THREE.WebGLRenderer({ antialias: false });
-    renderer.setClearColor(scene.fog.color, 1);
+    //renderer.setClearColor(scene.fog.color, 1);
+    renderer.setClearColor(0xffffff);
     renderer.setSize(window.innerWidth, window.innerHeight);
     render();
 
